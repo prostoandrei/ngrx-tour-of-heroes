@@ -10,6 +10,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard//dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 // db mocks
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -20,7 +21,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
