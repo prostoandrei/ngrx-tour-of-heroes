@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { Hero } from '../../models/hero';
 import { HeroService } from '../../services/hero.service';
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: Hero[];
+  heroes: Observable<Hero[]>;
   selectedHero: Hero;
 
   constructor(
@@ -19,27 +20,27 @@ export class HeroesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroes = this.heroService.getHeroes();
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.create(name)
-      .then(hero => {
-        this.heroes.push(hero);
-        this.selectedHero = null;
-      });
-  }
+  // add(name: string): void {
+  //   name = name.trim();
+  //   if (!name) { return; }
+  //   this.heroService.create(name)
+  //     .then(hero => {
+  //       this.heroes.push(hero);
+  //       this.selectedHero = null;
+  //     });
+  // }
 
-  delete(hero: Hero): void {
-    this.heroService
-      .delete(hero.id)
-      .then(() => {
-        this.heroes = this.heroes.filter(h => h !== hero);
-        if (this.selectedHero === hero) { this.selectedHero = null; }
-      });
-  }
+  // delete(hero: Hero): void {
+  //   this.heroService
+  //     .delete(hero.id)
+  //     .then(() => {
+  //       this.heroes = this.heroes.filter(h => h !== hero);
+  //       if (this.selectedHero === hero) { this.selectedHero = null; }
+  //     });
+  // }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
