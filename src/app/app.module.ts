@@ -20,21 +20,33 @@ import { HeroService } from './services/hero.service';
 // db mocks
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroComponent } from './components/hero/hero.component';
+
+import { RouterStoreModule } from '@ngrx/router-store';
+import { reducer } from './reducers';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+
+    StoreModule.provideStore(reducer),
+    RouterStoreModule.connectRouter(),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
+  ],
   declarations: [
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
     DashboardComponent,
-    HeroSearchComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    HeroSearchComponent,
+    HeroComponent
   ],
   providers: [
     HeroService
