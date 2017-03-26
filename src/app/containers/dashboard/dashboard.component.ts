@@ -1,3 +1,5 @@
+import { ActionTypes } from '../../actions/heroes';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 import { HeroService } from '../../services/hero.service';
 import { Hero } from '../../models/hero';
@@ -14,12 +16,14 @@ export class DashboardComponent implements OnInit {
   // heroes: Hero[] = [];
   heroes: Observable<Hero[]>;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private store: Store<any>
+  ) { }
 
-  ngOnInit(): void {
-    this.heroes = this.heroService.getHeroes().take(4);
-      // .take(4)
-      // .then(heroes =>  = heroes.slice(1, 5));
+  ngOnInit() {
+    this.store.dispatch({ type: ActionTypes.GET_HEROES });
+    this.heroes = this.store.select('heroes');
   }
 
 }

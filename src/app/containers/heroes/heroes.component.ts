@@ -1,53 +1,28 @@
+import { HeroesEffects } from '../../effects/heroes.effects';
 import { Observable } from 'rxjs/Rx';
-import { Router } from '@angular/router';
 import { Hero } from '../../models/hero';
 import { HeroService } from '../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ActionTypes } from '../../actions/heroes';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent {
 
-  heroes: Observable<Hero[]>;
+  heroes: Observable<any>;
   selectedHero: Hero;
 
   constructor(
+    private store: Store<any>,
     private heroService: HeroService,
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    this.heroes = this.heroService.getHeroes();
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    // this.heroService.create(name).toPromise()
-    //   .then(hero => {
-    //     this.heroes.push(hero);
-    //     this.selectedHero = null;
-    //   });
-  }
-
-  delete(hero: Hero): void {
-    // this.heroService
-    //   .delete(hero.id)
-    //   .then(() => {
-    //     this.heroes = this.heroes.filter(h => h !== hero);
-    //     if (this.selectedHero === hero) { this.selectedHero = null; }
-    //   });
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+    private heroesEffects: HeroesEffects
+  ) {
+    this.store.dispatch({ type: ActionTypes.GET_HEROES });
+    this.heroes = store.select('heroes');
   }
 
 }

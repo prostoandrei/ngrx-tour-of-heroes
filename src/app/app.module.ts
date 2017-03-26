@@ -1,3 +1,4 @@
+import { HeroesEffects } from './effects/heroes.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +27,10 @@ import { RouterStoreModule } from '@ngrx/router-store';
 import { reducer } from './reducers';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { HeroesGridComponent } from './components/heroes-grid/heroes-grid.component';
 
 @NgModule({
   imports: [
@@ -35,6 +40,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
 
     StoreModule.provideStore(reducer),
+    EffectsModule.run(HeroesEffects),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
@@ -46,7 +52,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HeroesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroComponent
+    HeroComponent,
+    HeroListComponent,
+    AddHeroComponent,
+    HeroesGridComponent
   ],
   providers: [
     HeroService
