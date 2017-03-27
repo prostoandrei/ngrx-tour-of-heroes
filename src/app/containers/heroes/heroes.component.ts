@@ -13,8 +13,10 @@ import { ActionTypes } from '../../actions/heroes';
 })
 export class HeroesComponent {
 
-  heroes: Observable<any>;
   selectedHero: Hero;
+  heroes: Observable<any>;
+
+  public createHeroSuccess$: Observable<any>;
 
   constructor(
     private store: Store<any>,
@@ -23,6 +25,9 @@ export class HeroesComponent {
   ) {
     this.store.dispatch({ type: ActionTypes.GET_HEROES });
     this.heroes = store.select('heroes');
+    this.createHeroSuccess$ = heroesEffects.createHero$.filter(
+      (action) => action.type === ActionTypes.CREATE_HERO_SUCCESS
+    );
   }
 
 }

@@ -1,7 +1,7 @@
 import { ActionTypes } from '../../actions/heroes';
 import { Store } from '@ngrx/store';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-add-hero',
@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-hero.component.scss']
 })
 export class AddHeroComponent implements OnInit {
+
+  heroName: String;
 
   constructor(
     private store: Store<any>
@@ -21,6 +23,11 @@ export class AddHeroComponent implements OnInit {
     name = name.trim();
     if (!name) { return; }
     this.store.dispatch({ type: ActionTypes.CREATE_HERO, payload: name });
+  }
+
+  @Input()
+  public set reset(action) {
+    this.heroName = '';
   }
 
 }

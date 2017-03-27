@@ -31,6 +31,7 @@ import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { HeroesGridComponent } from './components/heroes-grid/heroes-grid.component';
+import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-search-filter.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { HeroesGridComponent } from './components/heroes-grid/heroes-grid.compon
     HeroComponent,
     HeroListComponent,
     AddHeroComponent,
-    HeroesGridComponent
+    HeroesGridComponent,
+    HeroSearchFilterComponent
   ],
   providers: [
     HeroService
