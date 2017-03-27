@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-hero-search-filter',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-search-filter.component.scss']
 })
 export class HeroSearchFilterComponent implements OnInit {
+
+  @Output() changeFilter = new EventEmitter<any>();
 
   constructor() { }
 

@@ -10,12 +10,12 @@ export class HeroesEffects {
 
   @Effect() getHeroes$ = this.actions$
     .ofType(ActionTypes.GET_HEROES)
-    // .withLatestFrom(
-    //   this.store.select('searchFilter'),
-    //   (filter) => filter
-    // )
-    .switchMap(() =>  // filter
-      this.heroService.getHeroes() // filter
+    .withLatestFrom(
+      this.store.select('searchFilter'),
+      (filter) => filter
+    )
+    .switchMap((filter) =>  // filter
+      this.heroService.getHeroes(filter) //
         .map(heroes => ({ type: ActionTypes.GET_HEROES_SUCCESS, payload: heroes }))
         .catch(() => Observable.of({type: ActionTypes.GET_HEROES_ERROR })));
 

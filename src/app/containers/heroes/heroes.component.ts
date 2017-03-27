@@ -1,3 +1,4 @@
+import { SET_SEARCH_FILTER } from '../../reducers/heroes-search-filter.reducer';
 import { HeroesEffects } from '../../effects/heroes.effects';
 import { Observable } from 'rxjs/Rx';
 import { Hero } from '../../models/hero';
@@ -29,5 +30,13 @@ export class HeroesComponent {
       (action) => action.type === ActionTypes.CREATE_HERO_SUCCESS
     );
   }
+
+  changeFilter(filter) {
+    console.log('change!');
+    this.store.dispatch({ type: SET_SEARCH_FILTER, payload: filter });
+    this.store.dispatch({ type: ActionTypes.GET_HEROES });
+  }
+
+
 
 }

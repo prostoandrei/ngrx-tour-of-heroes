@@ -6,13 +6,13 @@ import { searchFilter, SearchFilterState } from './heroes-search-filter.reducer'
 export interface State {
   heroes: HeroesState;
   router: RouterState;
-  // searchFilter: SearchFilterState;
+  searchFilter: SearchFilterState;
 }
 
 const reducers = {
   router: routerReducer,
   heroes: heroesReducer,
-  // searchFilter: searchFilter
+  searchFilter: searchFilter
 };
 
 const productionReducer: ActionReducer<State> = combineReducers(reducers);
