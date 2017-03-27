@@ -12,7 +12,7 @@ export class HeroesEffects {
     .ofType(ActionTypes.GET_HEROES)
     .withLatestFrom(
       this.store.select('searchFilter'),
-      (filter) => filter
+      (action, filter) => filter
     )
     .switchMap((filter) =>  // filter
       this.heroService.getHeroes(filter) //

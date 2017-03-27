@@ -28,11 +28,10 @@ export class HeroService {
   }
 
   getFilteredHeroes(heroes: Hero[], filter: SearchFilterState) {
-    console.log(filter);
     if (!filter.searchName) {
       return heroes;
     } else {
-      return heroes.filter((hero) => hero.name === filter.searchName);
+      return heroes.filter((hero) => hero.name.includes(filter.searchName));
     }
   }
 

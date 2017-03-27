@@ -2,7 +2,7 @@ import { search } from '@ngrx/router-store';
 export const SET_SEARCH_FILTER = 'SET_SEARCH_FILTER';
 
 export interface SearchFilterState {
-  searchName: String | null;
+  searchName: string | null;
 }
 
 export const initialState: SearchFilterState = {

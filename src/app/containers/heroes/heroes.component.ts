@@ -16,6 +16,7 @@ export class HeroesComponent {
 
   selectedHero: Hero;
   heroes: Observable<any>;
+  activeFilter: Observable<any>;
 
   public createHeroSuccess$: Observable<any>;
 
@@ -29,14 +30,11 @@ export class HeroesComponent {
     this.createHeroSuccess$ = heroesEffects.createHero$.filter(
       (action) => action.type === ActionTypes.CREATE_HERO_SUCCESS
     );
+    this.activeFilter = store.select('searchFilter').take(1);
   }
 
   changeFilter(filter) {
-    console.log('change!');
     this.store.dispatch({ type: SET_SEARCH_FILTER, payload: filter });
     this.store.dispatch({ type: ActionTypes.GET_HEROES });
   }
-
-
-
 }
