@@ -8,7 +8,7 @@ import { Hero } from '../../models/hero';
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroListComponent {
   @Input() heroes;

@@ -16,16 +16,18 @@ export class HeroService {
     private http: Http
   ) {}
 
-  getHeroes(filter): Observable<Hero[]> {
+  getHeroes(): Promise<Hero[]> {
     return this.http
       .get(this.heroesUrl)
-      // .map(response => response.json().data as Hero[]) // response => this.getFilteredHeroes(, filter)
-      .map(response => this.getFilteredHeroes(response.json().data, filter))
-      // .map(response => response) // response => as Hero[] //
-      // .toPromise()
-      // .then(response => response.json().data as Hero[])
+      .toPromise()
+      .then(response => response.json().data as Hero[])
+      // .map(response => response.json().data)
       .catch(this.handleError);
   }
+
+
+
+
 
   getFilteredHeroes(heroes: Hero[], filter: SearchFilterState) {
     if (!filter.searchName) {

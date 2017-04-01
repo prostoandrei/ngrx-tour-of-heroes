@@ -23,6 +23,13 @@ export const heroesReducer = (state = initialState, action: Action) => {
     case ActionTypes.GET_HEROES_ERROR:
       return Object.assign({}, state, { pending: false, error: 'Error!' });
 
+
+
+
+
+
+
+
     case ActionTypes.DELETE_HERO:
       return Object.assign({}, state, { pending: true, error: null });
     case ActionTypes.DELETE_HERO_SUCCESS:

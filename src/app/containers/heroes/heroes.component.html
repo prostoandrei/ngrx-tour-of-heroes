@@ -1,8 +1,9 @@
 <h1>{{title}}</h1>
 <h2>My Heroes</h2>
-<app-hero-search-filter
+<!--<app-hero-search-filter
   (changeFilter)="changeFilter($event)"
   [active]="activeFilter | async">
-</app-hero-search-filter>
-<app-hero-list [heroes]="heroes | async"></app-hero-list>
+</app-hero-search-filter>-->
+<!--| async-->
+<app-hero-list [heroes]="heroes"></app-hero-list>
 <app-add-hero [reset]="createHeroSuccess$ | async"></app-add-hero>
