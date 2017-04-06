@@ -1,3 +1,4 @@
+import { Hero } from '../../models/hero';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class HeroesGridComponent implements OnInit {
 
-  @Input() heroes: any;
+  @Input() heroes: Hero[];
 
   constructor() { }
 

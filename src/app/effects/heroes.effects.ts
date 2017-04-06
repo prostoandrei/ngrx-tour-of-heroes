@@ -14,8 +14,8 @@ export class HeroesEffects {
       this.store.select('searchFilter'),
       (action, filter) => filter
     )
-    .switchMap((filter) =>  // filter
-      this.heroService.getHeroes(filter) //
+    .switchMap((filter) =>
+      this.heroService.getHeroes(filter)
         .map(heroes => ({ type: ActionTypes.GET_HEROES_SUCCESS, payload: heroes }))
         .catch(() => Observable.of({type: ActionTypes.GET_HEROES_ERROR })));
 
@@ -32,13 +32,6 @@ export class HeroesEffects {
       this.heroService.delete(action.payload)
         .map(() => ({ type: ActionTypes.DELETE_HERO_SUCCESS, payload: action.payload }))
         .catch(() => Observable.of({type: ActionTypes.DELETE_HERO_ERROR })));
-
-  // @Effect() addTodo$ = this.actions$
-  //   .ofType(ADD_TODO)
-  //   .switchMap(action =>
-  //     this.heroService.addTodo(action.payload.title)
-  //       .map(todo => ({type: ADD_TODO_SUCCESS, payload: todo}))
-  //       .catch(() => Observable.of({type: ADD_TODO_ERROR})));
 
   constructor(
     private actions$: Actions,

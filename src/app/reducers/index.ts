@@ -19,8 +19,4 @@ const productionReducer: ActionReducer<State> = combineReducers(reducers);
 
 export function reducer(state: any, action: any) {
   return productionReducer(state, action);
-  // if (environment.production) {
-  // } else {
-  //   return developmentReducer(state, action);
-  // }
 }

@@ -21,7 +21,6 @@ import { HeroService } from './services/hero.service';
 // db mocks
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { HeroComponent } from './components/hero/hero.component';
 
 import { RouterStoreModule } from '@ngrx/router-store';
 import { reducer } from './reducers';
@@ -53,7 +52,6 @@ import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-
     HeroesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroComponent,
     HeroListComponent,
     AddHeroComponent,
     HeroesGridComponent,

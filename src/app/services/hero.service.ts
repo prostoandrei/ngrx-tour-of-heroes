@@ -19,11 +19,7 @@ export class HeroService {
   getHeroes(filter): Observable<Hero[]> {
     return this.http
       .get(this.heroesUrl)
-      // .map(response => response.json().data as Hero[]) // response => this.getFilteredHeroes(, filter)
       .map(response => this.getFilteredHeroes(response.json().data, filter))
-      // .map(response => response) // response => as Hero[] //
-      // .toPromise()
-      // .then(response => response.json().data as Hero[])
       .catch(this.handleError);
   }
 
@@ -38,8 +34,6 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
-      // .toPromise()
-      // .then(response => response.json().data as Hero)
       .map(response => response.json().data as Hero)
       .catch(this.handleError);
   }
@@ -66,8 +60,6 @@ export class HeroService {
         JSON.stringify({ name: name }),
         { headers: this.headers }
       )
-      // .toPromise()
-      // .then(res => res.json().data)
       .map(res => res.json().data)
       .catch(this.handleError);
   }
