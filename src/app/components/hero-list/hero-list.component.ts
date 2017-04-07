@@ -1,14 +1,13 @@
 import { ActionTypes } from '../../actions/heroes';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from '../../models/hero';
 
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroListComponent {
   @Input() heroes;
