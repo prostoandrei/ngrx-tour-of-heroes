@@ -29,6 +29,26 @@ export class HeroesComponent {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // changeFilter(filter) {
 //     this.store.dispatch({ type: SET_SEARCH_FILTER, payload: filter });
 //     this.store.dispatch({ type: ActionTypes.GET_HEROES });
