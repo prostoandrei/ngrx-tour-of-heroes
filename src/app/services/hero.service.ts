@@ -19,13 +19,17 @@ export class HeroService {
       .get(this.heroesUrl)
       .toPromise()
       .then(response => response.json().data as Hero[])
-      // .map(response => response.json().data)
       .catch(this.handleError);
   }
 
 
 
 
+
+
+
+
+      // .map(response => response.json().data)
 
   getFilteredHeroes(heroes: Hero[], filter: SearchFilterState) {
     if (!filter.searchName) {
