@@ -16,12 +16,49 @@ export const initialState: HeroesState = {
 
 export const heroesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionTypes.GET_HEROES:
-      return Object.assign({}, state, { pending: true, error: null });
-    case ActionTypes.GET_HEROES_SUCCESS:
-      return Object.assign({}, state, { pending: false, error: null, data: action.payload });
-    case ActionTypes.GET_HEROES_ERROR:
-      return Object.assign({}, state, { pending: false, error: 'Error!' });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // case ActionTypes.GET_HEROES:
+    //   return Object.assign({}, state, { pending: true, error: null });
+    // case ActionTypes.GET_HEROES_SUCCESS:
+    //   return Object.assign({}, state, { pending: false, error: null, data: action.payload });
+    // case ActionTypes.GET_HEROES_ERROR:
+    //   return Object.assign({}, state, { pending: false, error: 'Error!' });
 
 
 
