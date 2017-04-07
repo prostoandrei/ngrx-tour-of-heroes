@@ -13,7 +13,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  // heroes: Hero[] = [];
   heroes: Observable<Hero[]>;
 
   constructor(
@@ -22,7 +21,7 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.dispatch({ type: ActionTypes.GET_HEROES });
+    // this.store.dispatch({ type: ActionTypes.GET_HEROES });
     this.heroes = this.store.select('heroes');
   }
 
