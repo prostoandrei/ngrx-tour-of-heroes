@@ -19,6 +19,24 @@ export class HeroListComponent {
     private store: Store<any>
   ) {}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
