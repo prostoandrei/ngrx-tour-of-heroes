@@ -36,7 +36,6 @@ export class HeroesEffects {
         .map(hero => ({ type: ActionTypes.CREATE_HERO_SUCCESS, payload: hero }))
         .catch(() => Observable.of({type: ActionTypes.GET_HEROES_ERROR })));
 
-  // tslint:disable-next-line:member-ordering
   @Effect() deleteHero$ = this.actions$
     .ofType(ActionTypes.DELETE_HERO)
     .switchMap((action) =>

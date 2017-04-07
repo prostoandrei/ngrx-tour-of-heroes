@@ -29,9 +29,10 @@ export class HeroesComponent {
     // this.store.dispatch({ type: ActionTypes.GET_HEROES });
     this.heroService.getHeroes()
       .then(res => this.heroes = res); // store.select('heroes');
-    this.createHeroSuccess$ = heroesEffects.createHero$.filter(
-      (action) => action.type === ActionTypes.CREATE_HERO_SUCCESS
-    );
+
+    // this.createHeroSuccess$ = heroesEffects.createHero$.filter(
+    //   (action) => action.type === ActionTypes.CREATE_HERO_SUCCESS
+    // );
     // this.activeFilter = store.select('searchFilter').take(1);
   }
 
