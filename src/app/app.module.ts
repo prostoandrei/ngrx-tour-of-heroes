@@ -42,7 +42,7 @@ import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-
     StoreModule.provideStore(reducer),
     EffectsModule.run(HeroesEffects),
     RouterStoreModule.connectRouter(),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    // StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
