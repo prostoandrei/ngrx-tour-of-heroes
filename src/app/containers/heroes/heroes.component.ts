@@ -1,3 +1,4 @@
+import { HeroesState } from '../../reducers/heroes';
 import { SET_SEARCH_FILTER } from '../../reducers/heroes-search-filter.reducer';
 import { HeroesEffects } from '../../effects/heroes.effects';
 import { Observable } from 'rxjs/Rx';
@@ -21,8 +22,7 @@ export class HeroesComponent {
   public createHeroSuccess$: Observable<any>;
 
   constructor(
-    private store: Store<any>,
-    private heroService: HeroService,
+    private store: Store<HeroesState>,
     private heroesEffects: HeroesEffects
   ) {
     this.store.dispatch({ type: ActionTypes.GET_HEROES });
