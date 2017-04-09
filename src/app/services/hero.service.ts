@@ -1,4 +1,3 @@
-import { SearchFilterState } from '../reducers/heroes-search-filter.reducer';
 import { Observable } from 'rxjs/Rx';
 import { Hero } from '../models/hero';
 import { Injectable } from '@angular/core';
@@ -29,15 +28,6 @@ export class HeroService {
 
 
 
-      // .map(response => response.json().data)
-
-  getFilteredHeroes(heroes: Hero[], filter: SearchFilterState) {
-    if (!filter.searchName) {
-      return heroes;
-    } else {
-      return heroes.filter((hero) => hero.name.includes(filter.searchName));
-    }
-  }
 
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;

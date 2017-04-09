@@ -30,7 +30,6 @@ import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { HeroesGridComponent } from './components/heroes-grid/heroes-grid.component';
-import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-search-filter.component';
 
 @NgModule({
   imports: [
@@ -40,57 +39,7 @@ import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-
     AppRoutingModule,
 
     StoreModule.provideStore(reducer),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     EffectsModule.run(HeroesEffects),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     RouterStoreModule.connectRouter(),
     // StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
@@ -104,8 +53,7 @@ import { HeroSearchFilterComponent } from './components/hero-search-filter/hero-
     HeroSearchComponent,
     HeroListComponent,
     AddHeroComponent,
-    HeroesGridComponent,
-    HeroSearchFilterComponent
+    HeroesGridComponent
   ],
   providers: [
     HeroService
