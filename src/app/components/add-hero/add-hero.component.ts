@@ -25,6 +25,11 @@ export class AddHeroComponent implements OnInit {
     this.store.dispatch({ type: ActionTypes.CREATE_HERO, payload: name });
   }
 
+  @Input()
+  public set reset(action) {
+    this.heroName = '';
+  }
+
 }
 
 
@@ -56,7 +61,4 @@ export class AddHeroComponent implements OnInit {
 
 
 
-// @Input()
-// public set reset(action) {
-//   this.heroName = '';
-// }
+
