@@ -2,6 +2,8 @@
 
 ## Project was created for Nastachku conference to show reactive way for building Angular application.
 
+Yoc can switch to `not-rx-way` branch to look at non NG-RX application
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
 
 ## Development server
